@@ -7,8 +7,13 @@ const db = require("../db/dbConfig.js");
 const getAllSongs = async () => {
   try {
     const allSongs = await db.any("SELECT * FROM songs");
-    return allSongsl
+    return allSongs;
   } catch (error) {
     return error;
   }
+}
+
+//Do not forget to export functions
+module.exports = {
+  getAllSongs
 }

@@ -9,10 +9,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//Song Routes
+//Song Controller Route
+const songController = require("./controllers/songController.js");
+app.use("/songs", songController);
 
 //Routes
-
 //Home Route
 app.get("/", (req, res) => {
   res.send("Welcome to my Music App")

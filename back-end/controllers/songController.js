@@ -3,7 +3,7 @@ const express = require("express");
 const songs = express.Router();
 
 //import our query functions
-const { getAllSongs, getSong } = require("../queries/songs.js");
+const { getAllSongs, getSong, createSong } = require("../queries/songs.js");
 
 //Routes
 //Index
@@ -25,6 +25,12 @@ songs.get("/:id", async (req, res) => {
   } else {
     res.status(404).json({error: "song not found"});
   }
+});
+
+//Create
+songs.post("/", async (req, res) => {
+  const song = await createSong(req.body);
+  res.json(song);
 });
 
 module.exports = songs;

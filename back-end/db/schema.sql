@@ -10,6 +10,17 @@ CREATE TABLE songs (
   artist VARCHAR(255) NOT NULL,
   album VARCHAR(255) NOT NULL,
   time VARCHAR(255),
-  is_favorite BOOLEAN
+  is_favorite BOOLEAN,
+  image VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS playlists;
+CREATE TABLE playlists (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL,
+  description TEXT,
+  image TEXT,
+  genre TEXT,
+  is_private BOOL
 );
 

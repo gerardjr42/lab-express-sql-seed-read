@@ -13,11 +13,16 @@ app.use(express.json());
 const songController = require("./controllers/songController.js");
 app.use("/songs", songController);
 
+//Playlist Controller Route
+const playlistsController = require("./controllers/playlistController.js");
+app.use("/playlists", playlistsController);
+
 //Routes
 //Home Route
 app.get("/", (req, res) => {
   res.send("Welcome to my Music App")
 })
+
 
 //404 Route
 app.get("*", (req, res) => {

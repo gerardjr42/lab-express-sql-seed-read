@@ -12,7 +12,7 @@ export default function SongDetails() {
   // useState to hold song data
   const [song, setSong] = useState({
     name: "",
-    artis: "",
+    artist: "",
     album: "",
     is_favorite: false,
     time: "",
@@ -21,15 +21,9 @@ export default function SongDetails() {
   // useEffect to fetch data
   useEffect(() => {
     fetch(`${API}/songs/${id}`)
-      .then((res) => {
-        res.json();
-      })
-      .then((resJSON) => {
-        setSong(resJSON);
-      })
-      .catch((e) => {
-        navigate = "/notfound";
-      });
+      .then((res) => res.json())
+      .then((resJSON) => setSong(resJSON))
+      .catch(() => navigate("/notfound"));
   }, [id, navigate]);
 
   // set up delete functionality
@@ -41,5 +35,14 @@ export default function SongDetails() {
       .catch((e) => console.error(e));
   };
 
-  return <>{/* Add Song Details here, with edit button and delete button */}</>;
+  return (
+    <>
+      {/* Add Song Details here, with edit button and delete button */}
+      <div>
+        <h1>{song.name}</h1>
+        <h2>{song.artist}</h2>
+        <p>{song.album}</p>
+      </div>
+    </>
+  );
 }

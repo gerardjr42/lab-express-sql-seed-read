@@ -16,6 +16,7 @@ export default function SongDetails() {
     album: "",
     is_favorite: false,
     time: "",
+    image: "",
   });
 
   // useEffect to fetch data
@@ -38,7 +39,7 @@ export default function SongDetails() {
   return (
     <>
       {/* Add Song Details here, with edit button and delete button */}
-      <div>
+      <div className="mx-auto mt-8 flex w-[50%] flex-col text-center font-mono text-white">
         <h1>Name: {song.name}</h1>
         <h2>Artist: {song.artist}</h2>
         <p>Album: {song.album}</p>
